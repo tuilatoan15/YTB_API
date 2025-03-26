@@ -127,7 +127,7 @@ def auth_callback():
         session.modified = True
 
         # Tạo response với cookie đúng cách
-        redirect_url = "http://localhost:5500/Youtube-homepage-design"
+        redirect_url = "http://localhost:5500/index.html"
         response = make_response(redirect(redirect_url))
 
         # Lưu access_token vào cookie HTTP-Only (chống XSS)
