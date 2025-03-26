@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./assets/images/YouTube.png">
+    <title>Play Video</title>
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/comment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="left-section">
+            <img class="hamburger-menu" src="./assets/images/hamburger-menu.svg">
+            <a href="./index.html">
+                <img class="youtube-logo" src="./assets/images/youtube-logo.svg">
+            </a>
+        </div>
+        <div class="middle-section">
+            <input class="search-bar" id="search-query" type="text" placeholder="search" onkeypress="if(event.key === 'Enter') searchVideos()">
+            <button class="search-button" id="search-button" onclick="searchVideos()">
+                <img class="search-icon" src="./assets/images/search.svg">
+                <div class="tooltip">Search</div>
+            </button>
+            <button class="voice-button">
+                <img class="voice-icon" src="./assets/images/voice-search-icon.svg">
+                <div class="tooltip">Search with your voice</div>
+            </button>
+        </div>
+        <div class="right-section">
+            <div class="upload-icon-container">
+                <img class="upload-icon" src="./assets/images/upload.svg">
+                <div class="tooltip">Create</div>
+            </div>
+            <div class="youtube-apps-icon-container">
+                <img class="youtube-apps-icon" src="./assets/images/youtube-apps.svg">
+                <div class="tooltip">Youtube apps</div>
+            </div>
+            <div class="notifications-icon-container">
+                <img class="notifications-icon" src="./assets/images/notifications.svg">
+                <div class="notifications-count">3</div>
+                <div class="tooltip">Notifications</div>
+            </div>
+            <div class="user-container">
+                <img class="current-user-picture" id="user-avatar" src="./assets/images/default-avata.png" alt="User Avatar"/>
+                <button id="google-login-btn" style="display: none;" onclick="loginWithGoogle()">Đăng nhập với Google</button>
+                <div class="dropdown-menu" id="user-menu">
+                    <div class="user-info">
+                        <img class="menu-avatar" id="menu-avatar" src="./assets/images/default-avata.png">
+                        <div class="user-details">
+                            <p class="user-name">Toàn Nguyễn</p>
+                            <p id="user-handle">@ToanNguyen-ew6nf</p>
+                            <!-- <a href="#" id="showChannel">Xem kênh của bạn</a> -->
+                        </div>
+                    </div>
+                    <hr>
+                    <button class="menu-item" id="switch-account-btn" onclick="loginWithGoogle()">Chuyển đổi tài khoản</button>
+                    <button class="menu-item logout" id="logout-btn">Đăng xuất</button>
+                </div>
+            </div>               
+        </div>
+        </div>
+    </div>
+
+    <div class="container play-container">
+        <div class="row">
+            <div class="play-video">
+                <div class="video-wrapper" id="video-container">
+                    <!-- <video controls autoplay>
+                        <source src="" type="video/mp4">
+                    </video> -->
+                </div>
+                <br>
+                <h3 id="video-title">Video Title</h3>
+                <div class="play-video-info">
+                    <p class="bold-text" id="video-stats">Lượt xem &bull; Time ago</p>
+                    <div>
+                        <a href="#">
+                            <img src="./assets/images/like.png" id="likeButton" alt="Like Video"> 
+                            <span id="video-likes">0</span>
+                        </a>
+                        <a href="#"><img src="./assets/images/dislike.png" id="dislikeButton" alt="Dislike Video">0</a>
+                        <a href="#" id="shareBtn" class="top-icon"><img src="./assets/images/share.png" alt="Share"> Chia sẻ</a>
+                        <a href="#" class="top-icon"><img src="./assets/images/save.png" id="download-btn" alt="Tải video">Tải xuống</a>
+                        <!-- Popup modal -->
+                        <div id="shareModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <h2 class="modal-title">Chia sẻ</h2>
+                                <div class="share-icons">
+                                    <a href="#" id="whatsappShare"><img src="./assets/images/whatsapp.png"></a>
+                                    <a href="#" id="facebookShare"><img src="./assets/images/facebook.jpg"></a>
+                                    <a href="#" id="twitterShare"><img src="./assets/images/x.webp"></a>
+                                    <a href="#" id="emailShare"><img src="./assets/images/email.jpg"></a>
+                                </div>
+                                <div class="share-link">
+                                    <input type="text" id="shareLink" value="https://youtu.be/" readonly>
+                                    <button id="copyLink">Sao chép</button>  
+                                    <div id="toast">Đã sao chép đường liên kết vào bảng nhớ tạm</div>                                  
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="publisher">
+                    <img id="channel-avatar" src="./assets/images/default-avata.png">
+                    <div>
+                        <p id="channel-name">Channel Name</p>
+                        <span id="channel-subscribers">Subscribers</span>
+                    </div>
+                    <div class="btn-subcribe" id="subscribe-btn">
+                        <button type="button">                        
+                            <span>Đăng ký</span>
+                        </button>
+                        <!-- Modal xác nhận -->
+                        <!-- <div id="confirmModal" class="modal">
+                            <div class="modal-content">
+                                <p>Hủy đăng ký <b>AT EDM</b>?</p>
+                                <div class="modal-buttons">
+                                    <button id="cancelBtn">Hủy</button>
+                                    <button id="confirmBtn">Hủy đăng ký</button>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>            
+
+                <!-- ------------------------------------------------------------------------ comment----------------------------------------------------------------------------- -->
+                <div class="vid-description">
+                    <p class="vid-decribe" id="vid-decribe">Đây là phần mô tả của video này!!!</p>
+                    <hr>
+                        <div id="progress-container">
+                            <div id="progress-bar">0%</div>
+                        </div>
+                        <p id="status"></p>
+                        <div class="comment-container">
+                        <h4>100K Comments</h4>
+                        <div class="add-comment">
+                            <img id= "comment-avatar" src="./assets/images/default-login.webp">
+                            <input type="text" placeholder="Viết bình luận..." id="comment-input">
+                            <div class="comment-actions">
+                                <button id="cancel-btn">Hủy</button>
+                                <button id="submit-btn" disabled>Bình luận</button>
+                            </div>
+                        </div>
+                        <div class="comment-section">
+                            <div class="comment-list" id="comments-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ------Right Sidebar-------- -->
+
+            </div>
+
+            <div class="right-sidebar" id="list-container">
+                <!-- <div class="side-video-list">
+                    <a href="" class="small-thumbnail"><img src=""></a>
+                    <div class="vid-info">
+                        <a href="">Memories of 96 Movie | VijaySethupathi | Trisha </a>
+                        <p>Firstbeat</p>
+                        <p>100M Views &bull; 2 days ago</p>
+                    </div>
+                </div> -->
+            </div>
+
+        </div>
+    </div>
+    <script src="./scripts/play-video.js"></script>
+    <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/search.js"></script>
+</body>
+</html>

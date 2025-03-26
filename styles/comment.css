@@ -1,0 +1,237 @@
+comment-list/* Comment Section Styles */
+.comment-section {
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.comment-section-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* Comment Styles */
+.comment-item {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.comment-item-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 16px;
+}
+
+.comment-item-content {
+    flex: 1;
+}
+
+.comment-item-author {
+    font-size: 13px;
+    font-weight: 500;
+    color: #030303;
+    margin-bottom: 4px;
+}
+
+.comment-item-text {
+    font-size: 14px;
+    color: #030303;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.comment-item-footer {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: #606060;
+}
+
+.comment-item-footer .like-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+    color: #606060;
+}
+
+.comment-item-footer .like-button:hover {
+    color: #065fd4;
+}
+
+.comment-item-footer .like-button svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+}
+
+.comment-item-footer .timestamp {
+    margin-right: 16px;
+}
+
+/* Replies Styles */
+.comment-replies {
+    margin-left: 56px;
+    margin-top: 8px;
+    display: none; /* Ẩn replies ban đầu */
+}
+
+.comment-replies .comment-item {
+    margin-bottom: 8px;
+}
+
+.comment-replies .comment-item-avatar {
+    width: 32px;
+    height: 32px;
+}
+
+/* Container chứa tất cả comments */
+#comments-list {
+    width: 100%;
+    max-width: none;
+    margin: 0; 
+}
+
+/* Style cho mỗi comment */
+.comment {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+}
+
+/* Avatar của người comment */
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+/* Phần nội dung của comment */
+.comment-content {
+    flex: 1;
+}
+
+/* Tên tác giả comment */
+.comment-author {
+    font-size: 14px;
+    font-weight: 500;
+    color: #030303;
+    margin-bottom: 4px;
+}
+
+/* Nội dung comment */
+.comment-text {
+    font-size: 14px;
+    color: #030303;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Footer của comment (like button và timestamp) */
+.comment-footer {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: #606060;
+}
+
+/* Nút like */
+.like-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+    color: #606060;
+}
+
+.like-button:hover {
+    color: #065fd4;
+}
+
+.like-button svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+}
+
+/* Thời gian đăng comment */
+.timestamp {
+    font-size: 12px;
+    color: #606060;
+}
+
+/* Container chứa các replies */
+.replies {
+    margin-left: 56px;
+    margin-top: 8px;
+    display: none; /* Ẩn replies ban đầu */
+}
+
+/* Style cho mỗi reply */
+.replies .comment {
+    margin-bottom: 8px;
+    background-color: #f9f9f9;
+    box-shadow: none;
+}
+
+.replies .comment-avatar {
+    width: 32px;
+    height: 32px;
+}
+
+/* Hiển thị replies khi được click */
+.replies.visible {
+    display: block;
+}
+
+.comment-section {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+}
+
+.comment-list {
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    margin: 0; /* Đảm bảo không bị lệch do margin */
+    padding: 0;
+}
+
+.comment {
+    display: flex;
+    width: 100%; /* Mỗi comment chiếm toàn bộ chiều rộng */
+    padding: 12px 0px 12px 0px;
+    align-items: flex-start; /* Căn các phần tử trong comment về bên trái */
+}
+
+.replies-container {
+    margin-left: 56px;
+}
+
+.comment-reply-avatar{
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50%;
+    margin-top: -42px;
+}
+
+.avatar-img{
+    margin-top: -32px;
+}
+
+.toggle-replies {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 50px;
+
+}
+
+.toggle-replies:hover {
+    background-color: #DEF1FF;
+    cursor: pointer;
+}

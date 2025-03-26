@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube</title>
+    <link rel="icon" type="image/png" href="./assets/images/YouTube.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Youtube-homepage-design/styles/general.css">
+    <link rel="stylesheet" href="/Youtube-homepage-design/styles/header.css">
+    <link rel="stylesheet" href="/Youtube-homepage-design/styles/video.css">
+    <link rel="stylesheet" href="/Youtube-homepage-design/styles/sidebar.css">
+    <link rel="stylesheet" href="./styles/notification.css">
+</head>
+<body>
+    <div class="header">
+        <div class="left-section">
+            <img class="hamburger-menu" src="./assets/images/hamburger-menu.svg">
+            <a href="./index.html">
+                <img class="youtube-logo" src="./assets/images/youtube-logo.svg">
+            </a>
+        </div>
+        <div class="middle-section">
+            <input class="search-bar" id="search-query" type="text" placeholder="search" onkeypress="if(event.key === 'Enter') searchVideos()">
+            <button class="search-button" id="search-button" onclick="searchVideos()">
+                <img class="search-icon" src="./assets/images/search.svg">
+                <div class="tooltip">Search</div>
+            </button>
+            <button class="voice-button">
+                <img class="voice-icon" src="./assets/images/voice-search-icon.svg">
+                <div class="tooltip">Search with your voice</div>
+            </button>
+        </div>
+        <div class="right-section">
+            <div class="upload-icon-container">
+                <img class="upload-icon" src="./assets/images/upload.svg">
+                <div class="tooltip">Create</div>
+            </div>
+            <div class="youtube-apps-icon-container">
+                <img class="youtube-apps-icon" src="./assets/images/youtube-apps.svg">
+                <div class="tooltip">Youtube apps</div>
+            </div>
+            <div class="notifications-icon-container">
+                <img class="notifications-icon" src="./assets/images/notifications.svg">
+                <div class="notifications-count">3</div>
+                <div class="tooltip">Notifications</div>
+
+                <!-- Container thông báo -->
+                <div class="notifications-container">
+                    <h3>Thông báo</h3>
+
+                    <div class="notification-item">
+                        <img class="avatar" src="./assets/images/channel-1.jpeg" alt="Avatar">
+                        <div class="notification-content">
+                            <p class="notification-video-title">AL Anime Backup đã tải lên: SHORTEN "Vợ tôi là hội trưởng hội học sinh" | Season 1+2 | AL Anime</p>
+                            <span class="time">14 giờ trước</span>
+                        </div>
+                        <img class="notification-thumbnail" src="./assets/images/thumbnail-1.webp" alt="Thumbnail">
+                    </div>
+
+                    <div class="notification-item">
+                        <img class="avatar" src="./assets/images/channel-2.jpeg" alt="Avatar">
+                        <div class="notification-content">
+                            <p class="notification-video-title">Vitamin truyện đã tải lên: Trọn Bộ Đứa Trẻ Bị Bỏ Rơi...</p>
+                            <span class="time">15 giờ trước</span>
+                        </div>
+                        <img class="notification-thumbnail" src="./assets/images/thumbnail-2.webp" alt="Thumbnail">
+                    </div>
+
+                    <div class="notification-item">
+                        <img class="avatar" src="./assets/images/channel-3.jpeg" alt="Avatar">
+                        <div class="notification-content">
+                            <p class="notification-video-title">Thần Thoại Chém Gió đã tải lên: ZingSpeed Mobile | Map Mới Vụ Sơn Ngũ Hành 3 Sao</p>
+                            <span class="time">15 giờ trước</span>
+                        </div>
+                        <img class="notification-thumbnail" src="./assets/images/thumbnail-3.webp" alt="Thumbnail">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Khi click vào ảnh, gọi hàm login -->
+            <!-- <img class="current-user-picture" id="user-avatar" src="./assets/images/default-avata.png" onclick="loginWithGoogle()" /> -->               
+            <div class="user-container">
+                <img class="current-user-picture" id="user-avatar" src="./assets/images/default-avata.png" alt="User Avatar"/>
+                <button id="google-login-btn" style="display: none;" onclick="loginWithGoogle()">Đăng nhập với Google</button>
+                <div class="dropdown-menu" id="user-menu">
+                    <div class="user-info">
+                        <img class="menu-avatar" id="menu-avatar" src="./assets/images/default-avata.png">
+                        <div class="user-details">
+                            <p class="user-name">Toàn Nguyễn</p>
+                            <p id="user-handle">@ToanNguyen-ew6nf</p>
+                            <!-- <a href="#" id="showChannel">Xem kênh của bạn</a> -->
+                        </div>
+                    </div>
+                    <hr>
+                    <button class="menu-item" id="switch-account-btn" onclick="loginWithGoogle()">Chuyển đổi tài khoản</button>
+                    <button class="menu-item logout" id="logout-btn">Đăng xuất</button>
+                </div>
+            </div>               
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="sidebar-link">
+            <img class="sidebar-link-image" src="./assets/images/home.svg">
+            <div class="sidebar-link-text">Home</div>
+        </div>
+        <div class="sidebar-link">
+            <img class="sidebar-link-image" src="./assets/images/explore.svg">
+            <div class="sidebar-link-text">Explore</div>
+        </div>
+        <div class="sidebar-link">
+            <img class="sidebar-link-image" src="./assets/images/subscriptions.svg">
+            <div class="sidebar-link-text">Subscriptions</div>
+        </div>
+        <div class="sidebar-link">
+            <img class="sidebar-link-image" src="./assets/images/originals.svg">
+            <div class="sidebar-link-text">Originals</div>
+        </div>
+        <div class="sidebar-link">
+            <img class="sidebar-link-image" src="./assets/images/youtube-music.svg">
+            <div class="sidebar-link-text">Youtube Music</div>
+        </div>
+        <div class="sidebar-link">
+            <img class="sidebar-link-image" src="./assets/images/library.svg">
+            <div class="sidebar-link-text">Library</div>
+        </div>
+    </div>
+
+    <div class="video-grid video-preview">
+        <div class=".list-container" id=".list-container"></div>
+        <!-- Video render here! -->
+    </div>
+
+    <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/search.js"></script>
+    <!-- <script src="./scripts/notification.js"></script> -->
+    <script src="https://apis.google.com/js/api.js"></script>
+</body>
+</html>

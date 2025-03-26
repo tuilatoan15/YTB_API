@@ -1,0 +1,298 @@
+body {
+    padding-top: 75px;
+    margin: 0;
+}
+
+.header {
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(228, 228, 228);
+    z-index: 100;
+}
+
+.video-grid {
+    position: relative;
+    z-index: 1;
+}
+
+.sidebar {
+    position: fixed;
+    top: 55px;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+}
+
+.hamburger-menu {
+    height: 24px;
+    margin-left: 24px;
+    margin-right: 20px;
+}
+
+.youtube-logo {
+    height: 20px;
+}
+
+.middle-section {
+    flex: 1;
+    margin-left: 70px;
+    margin-right: 35px;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    flex: 1;
+    height: 36px;
+    padding-left: 10px;
+    font-size: 16px;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 2px;
+    box-shadow: inset 1px 2px 5px rgba(0, 0, 0, 0.15); /* Sửa lỗi từ alpha0.15 thành 0.15 */
+    width: 100%; /* Sửa từ width: 0 thành width: 100% */
+}
+
+.search-bar::placeholder {
+    font-family: roboto, Arial;
+    font-size: 16px;
+}
+
+.search-button {
+    height: 40px;
+    width: 66px;
+    background-color: rgb(240, 240, 240);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(192, 192, 192);
+    margin-left: -1px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.search-button,
+.voice-button,
+.upload-icon-container,
+.youtube-apps-icon-container,
+.notifications-icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button .tooltip,
+.voice-button .tooltip,
+.upload-icon-container .tooltip,
+.youtube-apps-icon-container .tooltip,
+.notifications-icon-container .tooltip {
+    position: absolute;
+    background-color: rgb(93, 92, 92);
+    color: white;
+    padding-top: 4px;
+    padding-left: 8px;
+    padding-bottom: 4px;
+    padding-right: 8px;
+    border-radius: 2px;
+    font-size: 14px;
+    bottom: -40px;
+    opacity: 0;
+    transition: opacity 0.15s; /* Sửa lỗi thiếu đơn vị s */
+    pointer-events: none;
+    white-space: nowrap;
+    font-family: roboto, Arial;
+}
+
+.search-button:hover .tooltip,
+.voice-button:hover .tooltip,
+.upload-icon-container:hover .tooltip,
+.youtube-apps-icon-container:hover .tooltip,
+.notifications-icon-container:hover .tooltip {
+    opacity: 0.9;
+}
+
+.search-icon {
+    height: 25px;
+}
+
+.voice-button {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(245, 245, 245);
+    cursor: pointer;
+}
+
+.voice-icon {
+    height: 24px;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 180px;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.upload-icon {
+    height: 24px;
+    cursor: pointer;
+}
+
+.youtube-apps-icon {
+    height: 24px;
+    cursor: pointer;
+}
+
+.notifications-icon {
+    height: 24px;
+    cursor: pointer;
+}
+
+.notifications-icon-container {
+    position: relative;
+}
+
+.notifications-count {
+    position: absolute;
+    top: -2px;
+    right: -5px;
+    background-color: rgb(200, 0, 0);
+    color: white;
+    font-family: roboto, Arial;
+    font-size: 11px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: 10px;
+}
+
+.current-user-picture {
+    height: 32px;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.user-container {
+    position: relative;
+    display: inline-block;
+}
+
+#user-avatar {
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Đưa menu xuống dưới */
+    left: -230px; /* Dịch sang trái 20px */
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 250px;
+    padding: 10px;
+    z-index: 1000;
+}
+
+#user-handle {
+    font-size: 14px !important;
+    margin: 5px 0px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user-details {
+    flex: 1;
+}
+
+.user-name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.user-handle {
+    font-size: 12px;
+    color: gray;
+    margin: 0;
+}
+
+.menu-item {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 8px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.menu-item:hover {
+    background: #f0f0f0;
+}
+
+.logout {
+    color: red;
+}
+
+#google-login-btn {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 110%; /* Hiện ngay bên dưới avatar */
+    left: 0;
+    transform: translateX(-75%); /* Canh giữa avatar */
+    color: #5f6368;
+    border: 1px solid #dadce0;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    width: 220px;
+    white-space: nowrap;
+    z-index: 1000;
+}
+
+#google-login-btn:hover {
+    background-color: #f8f9fa;
+}
+
+#google-login-btn:active {
+    background-color: #e8eaed;
+}
+

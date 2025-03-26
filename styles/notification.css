@@ -1,0 +1,100 @@
+/* Container chính */
+.notifications-icon-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Icon chuông */
+.notifications-icon {
+    width: 30px;
+    height: 30px;
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    display: none;
+    white-space: nowrap;
+}
+
+.notifications-icon-container:hover .tooltip {
+    display: block;
+}
+
+/* Container thông báo */
+.notifications-container {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 400px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 1000;
+}
+
+/* Tiêu đề */
+.notifications-container h3 {
+    margin: 0;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+/* Mỗi mục thông báo */
+.notification-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.notification-item:hover {
+    background: #f1f1f1;
+}
+
+/* Avatar */
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Nội dung thông báo */
+.notification-content {
+    flex: 1;
+}
+
+/* Tiêu đề video */
+.notification-video-title {
+    font-size: 14px;
+    color: #333;
+    margin: 5px 0;
+}
+
+/* Thời gian đăng */
+.time {
+    font-size: 12px;
+    color: gray;
+}
+
+/* Thumbnail video */
+.notification-thumbnail {
+    width: 80px;
+    height: 50px;
+    border-radius: 5px;
+    margin-left: 20px;
+}
